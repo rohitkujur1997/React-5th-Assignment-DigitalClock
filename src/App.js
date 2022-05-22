@@ -1,23 +1,29 @@
+import React,{useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import ToggleSwitch from './components/Toggle';
 
-function App() {
+const App = () => {
+  const [toggled,setToggled] = useState(false);
+
+  let time= new Date().toLocaleTimeString();
+  let date= new Date().toLocaleDateString();
+
+  const [ctime,setCtime] = useState(time);
+  const [cdate,setCdate] = useState(date);
+
+  const UpdateTime = () => {
+    time = new Date().toLocaleTimeString();
+    setCtime(time);
+  };
+
+  setInterval(UpdateTime,1000);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ToggleSwitch label="Date" onChange={(event)=> setToggled(event.target.checked)}/>
+      <p>The Switch is {toggled? "on":"OFF"}.</p>
+      <h3>{ctime}</h3>
+      <h3>{toggled}?{cdate}:""</h3>
     </div>
   );
 }
