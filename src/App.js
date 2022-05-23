@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import './App.css';
+import Headerlogo from './Headerlogo.png';
 import Header from './components/Header';
 import ToggleSwitch from './components/Toggle';
 import Timecomponent from './components/Timecomponent';
@@ -10,7 +11,7 @@ const App = () => {
   return (
     <div className="App">
       <Header/>
-      <ToggleSwitch label="Date" onChange={(event)=> setToggled(event.target.checked)}/>
+      <ToggleSwitch label="Date" src={Headerlogo} onChange={(event)=> setToggled(event.target.checked)}/>
       <Timecomponent switch={toggled} />
     </div>
   );

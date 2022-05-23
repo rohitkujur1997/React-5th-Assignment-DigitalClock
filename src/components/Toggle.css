@@ -67,4 +67,7 @@
     .checkbox:checked + .label .switch {
     right: 0px;
     }
-    
+    .dateimg{
+        height: 35px;
+        width: 35px;
+    }
